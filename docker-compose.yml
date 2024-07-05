@@ -1,0 +1,19 @@
+services:
+  bff:
+    build: ./bff
+    volumes:
+      - ./bff/src:/app/src
+    ports:
+      - "3000:3000"
+  mf_videos:
+    build: ./mf_videos
+    volumes:
+      - ./mf_videos/src:/app/src
+    ports:
+      - "8081:8081"
+  mf_drawer:
+    build: ./mf_drawer
+    volumes:
+      - ./mf_drawer/src:/app/src
+    ports:
+      - "8080:8080"

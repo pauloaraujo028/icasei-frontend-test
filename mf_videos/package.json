@@ -1,0 +1,15 @@
+{
+  "name": "mf_videos",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "live-server --port=8081 --no-browser ./src",
+    "test": "jest"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "live-server": "^1.2.2"
+  }
+}
