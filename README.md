@@ -83,19 +83,55 @@ Este projeto consiste em um sistema de gerenciamento de vídeos que inclui uma s
 - Uma vez aberto, navegue até o nível superior esquerdo do projeto, um botão verde de download do código estará visível no lado direito.
 - Selecione a opção de download Zip no menu suspenso.
 - Quando o download estiver concluído, você poderá acessar meu projeto localmente.
-   ou
+  
+- Ou
   ```sh
   git clone https://github.com/seu-usuario/icasei-frontend-test.git
   cd icasei-frontend-test
   ```
 
-
 <a name="prerequisites"></a>
 ### Pré-requisitos
-* npm
+
+* Node
+* Docker
+
+### Configure o Docker Compose
+
+* Crie um arquivo docker-compose.yml na raiz do projeto com o seguinte conteúdo:
+
   ```sh
-  npm install npm@latest -g
+  services:
+  bff:
+    build: ./bff
+    volumes:
+      - ./bff/src:/app/src
+    ports:
+      - "3000:3000"
+  mf_videos:
+    build: ./mf_videos
+    volumes:
+      - ./mf_videos/src:/app/src
+    ports:
+      - "8081:8081"
+  mf_drawer:
+    build: ./mf_drawer
+    volumes:
+      - ./mf_drawer/src:/app/src
+    ports:
+      - "8080:8080"
+
   ```
+
+  ### Construir e iniciar os serviços Docker:
+  
+  ```sh
+    docker-compose up --build
+  ```
+
+  ### Acesse a aplicação no navegador:
+
+  * Abra o navegador e acesse http://localhost
 
 <p align="right">(<a href="#readme-top">Voltar ao topo</a>)</p>
 
